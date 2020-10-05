@@ -1,0 +1,77 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" >
+<title>Space Invaders</title>
+<body style="background-color:lightgray;">
+<h1>Space Invaders</h1>
+<p>Final Project created for CSCI343, Computer Graphics, at the College of the Holy Cross with Juan Correa & Justin Bella using Javascript and WebGL as well as libraries supplied by our courses textbook "Interactive Computer Graphics: A top-down approach with WebGL, 7th Edition, by Edward Angel & Dave Shreiner, Addison Wesley".</p>
+
+<script id="vertex-shader" type="x-shader/x-vertex">
+
+attribute vec4 vPosition;
+attribute vec4 vColor;
+varying vec4 fColor;
+
+uniform mat4 modelView;
+uniform mat4 projection;
+
+void main()
+{
+    gl_Position = projection * modelView * vPosition;
+    fColor = vColor;
+}
+</script>
+
+<script id="fragment-shader" type="x-shader/x-fragment">
+
+precision mediump float;
+
+varying vec4 fColor;
+
+void main()
+{
+    gl_FragColor = fColor;
+}
+</script>
+
+<script type="text/javascript" src="../Common/webgl-utils.js"></script>
+<script type="text/javascript" src="../Common/initShaders.js"></script>
+<script type="text/javascript" src="../Common/MV.js"></script>
+<script type="text/javascript" src="game.js"></script>
+<script type="text/javascript" src="arcade.js"></script>
+
+
+
+
+
+
+<body>
+<canvas id="gl-canvas" width="550"" height="550">
+Oops ... your browser doesn't support the HTML5 canvas element
+</canvas>
+
+<br/>
+
+<button id= "cam_0">Screen View</button>
+<button id= "cam_1">First Person</button>
+<button id= "cam_2">Third Person</button>
+<button id= "cam_c">Center Camera</button>
+
+<h4> Controls </h4>
+<p> "S" - starts game </p>
+<p> "Z" - pauses game </p>
+<p> "J" - go left </p>
+<p> "K" - fire </p>
+<p> "L" - go right </p>
+<p> "1" - rotate up (when not in screen view) </p>
+<p> "2" - rotate down (when not in screen view) </p>
+<p> "3" - rotate left (when not in screen view) </p>
+<p> "4" - rotate right (when not in screen view) </p>
+
+
+
+
+</body>
+</body>
+</html>
